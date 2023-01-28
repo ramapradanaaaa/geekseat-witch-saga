@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>GeekSeat Witch Saga</title>
+</head>
+<body>
+<div class="container p-5">
+    <h1 class="text-center mb-4">Average Death Calculator</h1>
+    <form action="/witch" method="POST">
+        <div class="row">
+            <div class="col-6">
+                <h3>Person 1</h3>
+                <div class="form-group">
+                    <label>Age of Death</label>
+                    <input type="number" class="form-control" th:value="${p1.ageOfDeath}" name="agesOfDeath[]">
+                </div>
+                <div class="form-group">
+                    <label>Year of Death</label>
+                    <input type="number" class="form-control" th:value="${p1.yearOfDeath}" name="yearsOfDeath[]">
+                </div>
+            </div>
+            <div class="col-6">
+                <h3>Person 2</h3>
+                <div class="form-group">
+                    <label>Age of Death</label>
+                    <input type="number" class="form-control" th:value="${p2.ageOfDeath}" name="agesOfDeath[]">
+                </div>
+                <div class="form-group">
+                    <label>Year of Death</label>
+                    <input type="number" class="form-control" th:value="${p2.yearOfDeath}" name="yearsOfDeath[]">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+
+    <div th:if="${result != null}" class="mt-4">
+        <h6>Calculation Result</h6>
+        <h2 th:utext="${result}"></h2>
+    </div>
+</div>
+</body>
+</html>
